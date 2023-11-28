@@ -1,13 +1,13 @@
-import AuthForm from "./components/AuthForm";
 import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
 
-const Auth = () => {
+const Home = () => {
   return (
     <div>
       <Navbar />
-      {/* <AuthForm /> */}
+      <Header/>
     </div>
   )
 }
 
-export default Auth;
+export default Home;

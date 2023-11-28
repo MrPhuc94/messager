@@ -31,20 +31,31 @@ const Navbar = () => {
                     <ul className='hidden sm:flex'>
                         <Link href="/about">
                             <li className='ml-10 hover:border-b text-xl'>
-                                Why us
+                                Products
                             </li>
                         </Link>
                         <Link href="/about">
                             <li className='ml-10 hover:border-b text-xl'>
-                                Why us
+                                Futures
                             </li>
                         </Link> <Link href="/about">
                             <li className='ml-10 hover:border-b text-xl'>
-                                Why us
+                                About
                             </li>
-                        </Link> <Link href="/about">
+                        </Link>
+                        <Link href="/about">
                             <li className='ml-10 hover:border-b text-xl'>
-                                Why us
+                                Contact
+                            </li>
+                        </Link>
+                        <Link href="/about">
+                            <li className='ml-10 hover:border-b text-xl'>
+                                Login
+                            </li>
+                        </Link>
+                        <Link href="/auth">
+                            <li className='ml-10 hover:border-b text-xl'>
+                                Register
                             </li>
                         </Link>
                     </ul>
