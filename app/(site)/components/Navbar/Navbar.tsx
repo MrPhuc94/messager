@@ -29,33 +29,28 @@ const Navbar = () => {
                 </Link>
                 <div className='hidden md:flex'>
                     <ul className='hidden md:flex'>
-                        <Link href="/about">
+                        <Link href="/auth">
                             <li className='ml-10 hover:border-b text-xl'>
                                 Products
                             </li>
                         </Link>
-                        <Link href="/about">
+                        <Link href="/auth">
                             <li className='ml-10 hover:border-b text-xl'>
                                 Futures
                             </li>
-                        </Link> <Link href="/about">
+                        </Link> <Link href="/auth">
                             <li className='ml-10 hover:border-b text-xl'>
-                                About
-                            </li>
-                        </Link>
-                        <Link href="/about">
-                            <li className='ml-10 hover:border-b text-xl'>
-                                Contact
-                            </li>
-                        </Link>
-                        <Link href="/about">
-                            <li className='ml-10 hover:border-b text-xl'>
-                                Login
+                                Blog
                             </li>
                         </Link>
                         <Link href="/auth">
                             <li className='ml-10 hover:border-b text-xl'>
-                                Register
+                                Contact
+                            </li>
+                        </Link>
+                        <Link href="/auth">
+                            <li className='ml-10 hover:border-b text-xl'>
+                                Login
                             </li>
                         </Link>
                     </ul>
@@ -75,20 +70,20 @@ const Navbar = () => {
                 </div>
                 <div className=''>
                         <ul className=''>
-                            <Link href="/about">
+                            <Link href="/auth">
                                 <li className='mb-6 hover:border-b text-xl'>
                                     Why us
                                 </li>
                             </Link>
-                            <Link href="/about">
+                            <Link href="/auth">
                                 <li className='mb-6 hover:border-b text-xl'>
                                     Why us
                                 </li>
-                            </Link> <Link href="/about">
+                            </Link> <Link href="/auth">
                                 <li className='mb-6 hover:border-b text-xl'>
                                     Why us
                                 </li>
-                            </Link> <Link href="/about">
+                            </Link> <Link href="/auth">
                                 <li className='mb-6 hover:border-b text-xl'>
                                     Why us
                                 </li>

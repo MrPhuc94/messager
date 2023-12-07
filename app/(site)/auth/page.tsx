@@ -11,6 +11,7 @@ import Input from "@/app/components/inputs/Input";
 import AuthSocialButton from '../components/AuthSocialButton';
 import Button from "@/app/components/Button";
 import { toast } from "react-hot-toast";
+import {video} from '@/public/index';
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -98,14 +99,14 @@ const AuthForm = () => {
         }
 
         if (callback?.ok) {
-          router.push('/conversations')
+          router.push('/')
         }
       })
       .finally(() => setIsLoading(false));
   } 
 
   return ( 
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="h-[100vh] sm:w-full bg-slate-800">
       <div 
         className="
         bg-white
@@ -114,6 +115,12 @@ const AuthForm = () => {
           shadow
           sm:rounded-lg
           sm:px-10
+          relative
+          translate-y-[-50%]
+          translate-x-[-50%]
+          left-[50%]
+          top-[50%]
+          sm:w-[50%]
         "
       >
         <form 

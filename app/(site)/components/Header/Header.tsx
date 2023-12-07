@@ -6,7 +6,7 @@ import arrowRight from '@/app/assets/ArrowRight.svg'
 
 const Header = () => {
   return (
-    <div className='header w-full flex md:px-[80px] px-[20px] py-[140px] flex-col md:flex-row'>
+    <div className='header w-full flex md:px-[80px] px-[20px] pt-[140px] pb-[60px] flex-col md:flex-row'>
       <div className="flex-1">
         <div className="title text-white text-5xl text-bold">
           Fastest & secure platform to invest in crypto
@@ -20,7 +20,7 @@ const Header = () => {
         </button>
       </div>
       <div className="flex-1">
-        <Image src={Illustration} alt="" />
+        <Image src={Illustration} alt="" className='m-auto'/>
       </div>
     </div>
   )
