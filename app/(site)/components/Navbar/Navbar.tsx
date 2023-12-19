@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className='fixed w-full h-24 shadow-orange-50 shadow-xl text-white navigation'>
+        <nav className='fixed w-full z-10 h-24 shadow-orange-50 shadow-xl text-white navigation'>
             <div className='flex justify-between items-center h-full w-full px-[10px] md:px-[80px] 2xl:px-16'>
                 <Link href="/">
                     <Image

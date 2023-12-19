@@ -12,6 +12,9 @@ import AuthSocialButton from '../components/AuthSocialButton';
 import Button from "@/app/components/Button";
 import { toast } from "react-hot-toast";
 import {video} from '@/public/index';
+import { AppDispatch, useAppSelecter } from "@/app/redux/store";
+import { useDispatch } from "react-redux";
+import { logIn } from "@/app/redux/features/auth-slice";
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -20,6 +23,10 @@ const AuthForm = () => {
   const router = useRouter();
   const [variant, setVariant] = useState<Variant>('LOGIN');
   const [isLoading, setIsLoading] = useState(false);
+  const token = useAppSelecter(state => state.authReducer.value.isAuth);
+  console.log('token', token);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
@@ -64,6 +71,8 @@ const AuthForm = () => {
         }
 
         if (callback?.ok) {
+          // push to store
+
           router.push('/conversations')
         }
       })
@@ -82,6 +91,9 @@ const AuthForm = () => {
         }
 
         if (callback?.ok) {
+          // store data 
+          console.log('data===', callback);
+          //dispatch(logIn())
           router.push('/conversations')
         }
       })
@@ -94,11 +106,13 @@ const AuthForm = () => {
 
     signIn(action, { redirect: false })
       .then((callback) => {
+        console.log('signInsignInsignIn', callback)
         if (callback?.error) {
           toast.error('Invalid credentials!');
         }
 
         if (callback?.ok) {
+          console.log('signInsignInsignIn', callback)
           router.push('/')
         }
       })

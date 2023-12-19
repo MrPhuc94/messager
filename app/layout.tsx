@@ -4,8 +4,7 @@ import ActiveStatus from './components/ActiveStatus'
 import ToasterContext from './context/ToasterContext'
 import { Poppins } from 'next/font/google'
 import Navbar from './(site)/components/Navbar/Navbar'
-import {RootState} from '@/lib/store'
-import { Provider } from 'react-redux'
+import { ReduxProvider } from './redux/storeProvider'
 
 export const metadata = {
   title: 'Messenger',
@@ -26,14 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={popin.className}>
       <body>
-        <Provider store={RootState}>
+        <ReduxProvider>
           <AuthContext>
             <ToasterContext />
             <Navbar />
             <ActiveStatus />
             {children}
           </AuthContext>
-        </Provider>
+        </ReduxProvider>
       </body>
     </html>
   )
