@@ -17,9 +17,9 @@ interface ConversationBoxProps {
   selected?: boolean;
 }
 
-const ConversationBox: React.FC<ConversationBoxProps> = ({ 
-  data, 
-  selected 
+const ConversationBox: React.FC<ConversationBoxProps> = ({
+  data,
+  selected
 }) => {
   const otherUser = useOtherUser(data);
   const session = useSession();
@@ -37,7 +37,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
 
   const userEmail = useMemo(() => session.data?.user?.email,
   [session.data?.user?.email]);
-  
+
   const hasSeen = useMemo(() => {
     if (!lastMessage) {
       return false;
@@ -65,16 +65,17 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     return 'Started a conversation';
   }, [lastMessage]);
 
-  return ( 
+  return (
     <div
       onClick={handleClick}
       className={clsx(`
-        w-full 
-        relative 
-        flex 
-        items-center 
-        space-x-3 
-        p-3 
+        h-
+        w-full
+        relative
+        flex
+        items-center
+        space-x-3
+        p-3
         hover:bg-neutral-100
         rounded-lg
         transition
@@ -96,10 +97,10 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
               {data.name || otherUser.name}
             </p>
             {lastMessage?.createdAt && (
-              <p 
+              <p
                 className="
-                  text-xs 
-                  text-gray-400 
+                  text-xs
+                  text-gray-400
                   font-light
                 "
               >
@@ -107,9 +108,9 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
               </p>
             )}
           </div>
-          <p 
+          <p
             className={clsx(`
-              truncate 
+              truncate
               text-sm
               `,
               hasSeen ? 'text-gray-500' : 'text-black font-medium'
@@ -121,5 +122,5 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     </div>
   );
 }
- 
+
 export default ConversationBox;
