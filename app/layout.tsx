@@ -5,6 +5,7 @@ import ToasterContext from './context/ToasterContext'
 import { Poppins } from 'next/font/google'
 import Navbar from './(site)/components/Navbar/Navbar'
 import { ReduxProvider } from './redux/storeProvider'
+import getCurrentUser from './actions/getCurrentUser'
 
 export const metadata = {
   title: 'Messenger',
@@ -17,18 +18,21 @@ const popin = Poppins({
   subsets: ['latin']
 })
 
-export default function RootLayout({
+const RootLayout = async ({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) => {
+
+  const data = await getCurrentUser();
+
   return (
     <html lang="en" className={popin.className}>
       <body>
         <ReduxProvider>
           <AuthContext>
             <ToasterContext />
-            <Navbar />
+            <Navbar currentUser={data}/>
             <ActiveStatus />
             {children}
           </AuthContext>
@@ -37,3 +41,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

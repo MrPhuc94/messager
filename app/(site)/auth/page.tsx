@@ -93,7 +93,7 @@ const AuthForm = () => {
         if (callback?.ok) {
           // store data 
           console.log('data===', callback);
-          //dispatch(logIn())
+          //]dispatch(logIn())
           router.push('/conversations')
         }
       })
@@ -104,21 +104,21 @@ const AuthForm = () => {
   const socialAction = (action: string) => {
     setIsLoading(true);
 
-    // signIn(action, { redirect: false })
-    //   .then((callback) => {
-    //     console.log('signInsignInsignIn', callback)`
-    //     if (callback?.error) {
-    //       toast.error('Invalid credentials!');
-    //     }
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        console.log('signInsignInsignIn', callback)
+        if (callback?.error) {
+          toast.error('Invalid credentials!');
+        }
 
-    //     if (callback?.ok) {
-    //       console.log('signInsignInsignIn', callback)
-    //       router.push('/')
-    //       console.log('data===', callback);
-    //       //dispatch(logIn())
-    //     }
-    //   })
-    //   .finally(() => setIsLoading(false));
+        if (callback?.ok) {
+          console.log('signInsignInsignIn', callback)
+          router.push('/')
+          console.log('data===', callback);
+          dispatch(logIn(action))
+        }
+      })
+      .finally(() => setIsLoading(false));
   } 
 
   return ( 

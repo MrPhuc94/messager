@@ -1,18 +1,27 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Logo from '@/app/assets/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import './style.scss';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import Button from '@/app/components/Button';
 
-const Navbar = () => {
+interface IProps {
+    currentUser?: any;
+}
+
+const Navbar = (props: IProps) => {
+    const { currentUser } = props;
     const [menuOpen, setMenuOpen] = useState(false);
 
     const hanldeNav = () => {
         setMenuOpen(!menuOpen);
     }
+
+    console.log('currenntUser', currentUser)
 
     return (
         <nav className='fixed w-full z-10 h-24 shadow-orange-50 shadow-xl text-white navigation'>
@@ -48,13 +57,26 @@ const Navbar = () => {
                                 Contact
                             </li>
                         </Link>
-                        <Link href="/auth">
-                            <li className='ml-10 hover:border-b text-xl'>
-                                Login
-                            </li>
-                        </Link>
                     </ul>
                 </div>
+                <div className='hidden md:flex'>
+                {!currentUser ?
+                    <Link href="/auth">
+                        <span className='ml-10 hover:border-b text-xl'>
+                            Login
+                        </span>
+                    </Link> : (
+                        <button className='ml-10 hover:border-b text-xl'>
+                            <Image
+                                width="48"
+                                height="48"
+                                className="rounded-full"
+                                src={currentUser?.image || Logo}
+                                alt="Avatar"
+                            />
+                        </button>
+                    )}
+                    </div>
                 <div onClick={hanldeNav} className='md:hidden cursor-pointer'>
                     <AiOutlineMenu size={25} />
                 </div>
@@ -69,27 +91,27 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className=''>
-                        <ul className=''>
-                            <Link href="/auth">
-                                <li className='mb-6 hover:border-b text-xl'>
-                                    Why us
-                                </li>
-                            </Link>
-                            <Link href="/auth">
-                                <li className='mb-6 hover:border-b text-xl'>
-                                    Why us
-                                </li>
-                            </Link> <Link href="/auth">
-                                <li className='mb-6 hover:border-b text-xl'>
-                                    Why us
-                                </li>
-                            </Link> <Link href="/auth">
-                                <li className='mb-6 hover:border-b text-xl'>
-                                    Why us
-                                </li>
-                            </Link>
-                        </ul>
-                    </div>
+                    <ul className=''>
+                        <Link href="/auth">
+                            <li className='mb-6 hover:border-b text-xl'>
+                                Why us
+                            </li>
+                        </Link>
+                        <Link href="/auth">
+                            <li className='mb-6 hover:border-b text-xl'>
+                                Why us
+                            </li>
+                        </Link> <Link href="/auth">
+                            <li className='mb-6 hover:border-b text-xl'>
+                                Why us
+                            </li>
+                        </Link> <Link href="/auth">
+                            <li className='mb-6 hover:border-b text-xl'>
+                                Why us
+                            </li>
+                        </Link>
+                    </ul>
+                </div>
             </div>
         </nav>
     )

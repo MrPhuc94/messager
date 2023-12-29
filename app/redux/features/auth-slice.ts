@@ -23,7 +23,7 @@ export const auth = createSlice({
     initialState,
     reducers: {
         logOut: () => {
-            return initialState
+            return initialState 
         },
         logIn: (state, action: PayloadAction<string>) => {
             return{
