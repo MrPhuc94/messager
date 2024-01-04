@@ -38,21 +38,21 @@ const Navbar = (props: IProps) => {
                 </Link>
                 <div className='hidden md:flex'>
                     <ul className='hidden md:flex'>
-                        <Link href="/auth">
+                        <Link href="/products">
                             <li className='ml-10 hover:border-b text-xl'>
                                 Products
                             </li>
                         </Link>
-                        <Link href="/auth">
+                        <Link href="/futures">
                             <li className='ml-10 hover:border-b text-xl'>
                                 Futures
                             </li>
-                        </Link> <Link href="/auth">
+                        </Link> <Link href="/blog">
                             <li className='ml-10 hover:border-b text-xl'>
                                 Blog
                             </li>
                         </Link>
-                        <Link href="/auth">
+                        <Link href="/contact">
                             <li className='ml-10 hover:border-b text-xl'>
                                 Contact
                             </li>
